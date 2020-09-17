@@ -150,7 +150,7 @@ export default class Login extends Component {
               <TouchableHighlight
                 style={[styles.buttonContainer, styles.loginButton]}
                 onPress={() => {
-                  this.loginUser();
+                  this.loginUser()
                   if (toGo === "STUDENT") {
                     navigate("student");
                   }
