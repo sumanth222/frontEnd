@@ -9,6 +9,8 @@ import {
   Alert,
   ScrollView,
   FlatList,
+  Platform
+
 } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import "react-native-gesture-handler";
@@ -20,9 +22,52 @@ export default class studentDash extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      enableScrollViewScroll: true,
       data: [
         {
           id: 1,
+          title: "Physics",
+          color: "#f0a500",
+          image: "https://img.icons8.com/wired/64/000000/physics.png",
+          nav: "physics",
+        },
+        {
+          id: 2,
+          title: "Physics",
+          color: "#f0a500",
+          image: "https://img.icons8.com/wired/64/000000/physics.png",
+          nav: "physics",
+        },
+        {
+          id: 2,
+          title: "Physics",
+          color: "#f0a500",
+          image: "https://img.icons8.com/wired/64/000000/physics.png",
+          nav: "physics",
+        },
+        {
+          id: 2,
+          title: "Physics",
+          color: "#f0a500",
+          image: "https://img.icons8.com/wired/64/000000/physics.png",
+          nav: "physics",
+        },
+        {
+          id: 2,
+          title: "Physics",
+          color: "#f0a500",
+          image: "https://img.icons8.com/wired/64/000000/physics.png",
+          nav: "physics",
+        },
+        {
+          id: 2,
+          title: "Physics",
+          color: "#f0a500",
+          image: "https://img.icons8.com/wired/64/000000/physics.png",
+          nav: "physics",
+        },
+        {
+          id: 2,
           title: "Physics",
           color: "#f0a500",
           image: "https://img.icons8.com/wired/64/000000/physics.png",
@@ -49,7 +94,9 @@ export default class studentDash extends Component {
     return (
       <ImageBackground style={styles.backgroundCon} source={stuBack}>
         <SafeAreaView>
+          <ScrollView>
         <View style={styles.container}>
+
           <View>
             <Text style={styles.title}>Select a subject</Text>
           </View>
@@ -58,13 +105,14 @@ export default class studentDash extends Component {
             contentContainerStyle={styles.listContainer}
             data={this.state.data}
             horizontal={false}
-            numColumns={2}
+            numColumns={Platform.OS === "web" ? 4 : 2}
+            scrollEnabled={true}
             keyExtractor={(item) => {
               return item.id;
             }}
             renderItem={({ item }) => {
               return (
-                <View>
+                <View>  
                   <TouchableOpacity
                     style={[styles.card, { backgroundColor: item.color }]}
                     onPress={()=>{navigate(item.nav)}}
@@ -89,6 +137,7 @@ export default class studentDash extends Component {
             }}
           />
         </View>
+        </ScrollView>
         </SafeAreaView>
       </ImageBackground>
     );
@@ -104,7 +153,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
   container: {
-    flex: 1,
+    flex : 1,
   },
   list: {
    marginTop:"10%",
@@ -134,7 +183,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
   cardHeader: {
-    paddingVertical: 17,
+    paddingVertical: 5,
     paddingHorizontal: 16,
     borderTopLeftRadius: 1,
     borderTopRightRadius: 1,
@@ -143,7 +192,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
   cardContent: {
-    paddingVertical: 12.5,
+    paddingVertical: 5.5,
     paddingHorizontal: 16,
   },
   cardFooter: {
