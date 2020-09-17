@@ -14,6 +14,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import "react-native-gesture-handler";
 import { createStackNavigator } from "@react-navigation/stack";
 import stuBack from "E:/Ps3Games/index-master/assets/stuBack.jpg";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 export default class studentDash extends Component {
   constructor(props) {
@@ -24,14 +25,14 @@ export default class studentDash extends Component {
           id: 1,
           title: "Physics",
           color: "#f0a500",
-          image: "https://www.flaticon.com/svg/static/icons/svg/2933/2933803.svg",
+          image: "https://img.icons8.com/wired/64/000000/physics.png",
           nav: "physics",
         },
         {
           id: 2,
           title: "Physics",
           color: "#f0a500",
-          image: "https://www.flaticon.com/svg/static/icons/svg/2933/2933803.svg",
+          image: "https://img.icons8.com/wired/64/000000/physics.png",
           nav: "physics",
         },
         
@@ -47,9 +48,10 @@ export default class studentDash extends Component {
     const { navigate } = this.props.navigation;
     return (
       <ImageBackground style={styles.backgroundCon} source={stuBack}>
+        <SafeAreaView>
         <View style={styles.container}>
           <View>
-            <Text style={styles.title}>Student DashBoard</Text>
+            <Text style={styles.title}>Select a subject</Text>
           </View>
           <FlatList
             style={styles.list}
@@ -87,6 +89,7 @@ export default class studentDash extends Component {
             }}
           />
         </View>
+        </SafeAreaView>
       </ImageBackground>
     );
   }
@@ -104,7 +107,7 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   list: {
-    marginTop: "30%",
+   marginTop:"10%",
     paddingHorizontal: 5,
   },
   listContainer: {
