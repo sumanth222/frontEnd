@@ -15,7 +15,7 @@ import {
 import { NavigationContainer } from "@react-navigation/native";
 import "react-native-gesture-handler";
 import { createStackNavigator } from "@react-navigation/stack";
-import stuBack from "E:/Ps3Games/index-master/assets/stuBack.jpg";
+import stuBack from "F:/virtusaProject/frontEnd-master/assets/stuBack.jpg";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 export default class studentDash extends Component {
@@ -29,7 +29,7 @@ export default class studentDash extends Component {
           title: "Physics",
           color: "#f0a500",
           image: "https://img.icons8.com/wired/64/000000/physics.png",
-          nav: "physics",
+          nav: "physicsPlaylist",
         },
         {
           id: 2,

@@ -10,7 +10,7 @@ import {
   ScrollView,
   FlatList,
 } from "react-native";
-import stuBack from "E:/Ps3Games/index-master/assets/stuBack.jpg";
+import stuBack from "F:/virtusaProject/frontEnd-master/assets/stuBack.jpg";
 
 export default class teacherDash extends Component {
   constructor(props) {
