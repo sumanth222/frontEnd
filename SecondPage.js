@@ -81,7 +81,7 @@ export default class Registration extends Component {
     };
     AsyncStorage.setItem("myitems", JSON.stringify(myitems));
 
-    fetch("http://192.168.0.106:8090/newUser", {
+    fetch("http://192.168.0.103:8080/newUser", {
       method: "POST",
       body: JSON.stringify({
         userName: email,

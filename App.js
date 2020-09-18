@@ -11,6 +11,7 @@ import studentDash from "./dashboards/Student";
 import teacherDash from "./dashboards/Teacher";
 import SplashScreen from "./screens/splashScreen";
 import physicsScreen from './Subjects/physics';
+import physicsPlaylist from "./playlists/physicspl";
 
 //import all the screens we are going to switch
 const App = createStackNavigator(
@@ -21,6 +22,7 @@ const App = createStackNavigator(
     Registration: { screen: Registration },
     student: { screen: studentDash },
     physics : {screen : physicsScreen},
+    physicsPlaylist : {screen : physicsPlaylist},
     teacher: { screen: teacherDash },
 
     //First entry by default be our first screen if we do not define initialRouteName
