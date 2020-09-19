@@ -36,51 +36,50 @@ export default class studentDash extends Component {
           title: "Physics",
           color: "#f0a500",
           image: "https://img.icons8.com/wired/64/000000/physics.png",
-          nav: "physics",
+          nav: "physicsPlaylist",
         },
         {
           id: 2,
           title: "Physics",
           color: "#f0a500",
           image: "https://img.icons8.com/wired/64/000000/physics.png",
-          nav: "physics",
+          nav: "physicsPlaylist",
         },
         {
           id: 2,
           title: "Physics",
           color: "#f0a500",
           image: "https://img.icons8.com/wired/64/000000/physics.png",
-          nav: "physics",
+          nav: "physicsPlaylist",
         },
         {
           id: 2,
           title: "Physics",
           color: "#f0a500",
           image: "https://img.icons8.com/wired/64/000000/physics.png",
-          nav: "physics",
+          nav: "physicsPlaylist",
         },
         {
           id: 2,
           title: "Physics",
           color: "#f0a500",
           image: "https://img.icons8.com/wired/64/000000/physics.png",
-          nav: "physics",
+          nav: "physicsPlaylist",
         },
         {
           id: 2,
           title: "Physics",
           color: "#f0a500",
           image: "https://img.icons8.com/wired/64/000000/physics.png",
-          nav: "physics",
+          nav: "physicsPlaylist",
         },
         {
           id: 2,
           title: "Physics",
           color: "#f0a500",
           image: "https://img.icons8.com/wired/64/000000/physics.png",
-          nav: "physics",
-        },
-        
+          nav: "physicsPlaylist",
+        },        
       ],
     };
   }
@@ -94,7 +93,7 @@ export default class studentDash extends Component {
     return (
       <ImageBackground style={styles.backgroundCon} source={stuBack}>
         <SafeAreaView>
-          <ScrollView>
+         
         <View style={styles.container}>
 
           <View>
@@ -137,7 +136,7 @@ export default class studentDash extends Component {
             }}
           />
         </View>
-        </ScrollView>
+
         </SafeAreaView>
       </ImageBackground>
     );

@@ -4,6 +4,7 @@ import {
   Text,
   View,
   Image,
+  Button,
   TouchableOpacity,
   FlatList,
   Dimensions,
@@ -16,40 +17,28 @@ export default class physicsPlaylist extends Component {
   constructor(props) {
     super(props);
     this.state = {
+
       data: [
-        {id:1,  description:"01. Lorem ipsum dolor sit amet, consectetuer adipiscing elit.", date:"2019-03-25 09:12:00", color:"#228B22", completed:1},
-        {id:2,  description:"02. Aenean massa. Cum sociis natoque penatibus et magnis.",     date:"2019-03-25 10:23:00", color:"#FF00FF", completed:0},
-        {id:3,  description:"03. nascetur ridiculus mus. Donec quam felis, ultricies dnec.", date:"2019-03-25 11:45:00", color:"#4B0082", completed:1},
-        {id:4,  description:"04. Donec pede justo, fringilla vel, aliquet nec, vulputdate.", date:"2019-03-25 09:27:00", color:"#20B2AA", completed:0},
-        {id:5,  description:"05. Nullam dictum felis eu pede mollis pretium. Integer tirr.", date:"2019-03-25 08:13:00", color:"#000080", completed:0},
-        {id:6,  description:"06. ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas st.", date:"2019-03-25 10:22:00", color:"#FF4500", completed:1},
-        {id:7,  description:"07. Lorem ipsum dolor sit amet, consectetuer adipiscing elit.", date:"2019-03-25 13:33:00", color:"#FF0000", completed:0},
-        {id:8,  description:"08. Maecenas nec odio et ante tincidunt tempus. Donec vitae .", date:"2019-03-25 11:56:00", color:"#EE82EE", completed:0},
-        {id:9,  description:"09. Lorem ipsum dolor sit amet, consectetuer adipiscing elit.", date:"2019-03-25 15:00:00", color:"#6A5ACD", completed:0},
-        {id:10, description:"10. Aenean imperdiet. Etiam ultricies nisi vel augues aasde.", date:"2019-03-25 12:27:00", color:"#DDA0DD", completed:0},
+        {id:1,  description:"01. Lorem ipsum dolor sit amet, consectetuer adipiscing elit.", color:"#228B22",nav:"physics"},
+        {id:2,  description:"02. Aenean massa. Cum sociis natoque penatibus et magnis.", color:"#FF00FF",nav:"physics"},
+        {id:3,  description:"03. nascetur ridiculus mus. Donec quam felis, ultricies dnec.", color:"#4B0082",nav:"physics"},
+        {id:4,  description:"04. Donec pede justo, fringilla vel, aliquet nec, vulputdate.",color:"#20B2AA",nav:"physics"},
+        {id:5,  description:"05. Nullam dictum felis eu pede mollis pretium. Integer tirr.",color:"#000080",nav:"physics"},
+        {id:6,  description:"06. ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas st.",color:"#FF4500",nav:"physics"},
+        {id:7,  description:"07. Lorem ipsum dolor sit amet, consectetuer adipiscing elit.",color:"#FF0000",nav:"physics"},
+        {id:8,  description:"08. Maecenas nec odio et ante tincidunt tempus. Donec vitae .",color:"#EE82EE",nav:"physics"},
+        {id:9,  description:"09. Lorem ipsum dolor sit amet, consectetuer adipiscing elit.",color:"#6A5ACD",nav:"physics"},
+        {id:10, description:"10. Aenean imperdiet. Etiam ultricies nisi vel augues aasde.",color:"#DDA0DD",nav:"physics"},
       ]
     };
   }
 
   clickEventListener = (item) => {
-    Alert.alert("Item selected: "+item.description)
+    navigate(item.nav)
   }
-
-  __getCompletedIcon = (item) => {
-    if(item.completed == 1) {
-      return "https://img.icons8.com/flat_round/64/000000/checkmark.png";
-    } else {
-      return "https://img.icons8.com/flat_round/64/000000/delete-sign.png";
-    }
-  }
-
-  __getDescriptionStyle = (item) => {
-    if(item.completed == 1) {
-      return {textDecorationLine:"line-through", fontStyle:'italic', color:"#808080"};
-    }
-  } 
 
   render() {
+    const {navigate} = this.props.navigation;
     const {width,height} = Dimensions.get("window");
     return (
       <View style={styles.container}>
@@ -59,8 +48,16 @@ export default class physicsPlaylist extends Component {
            height : height/4,
            width : "100%",
           }}
-          source = {{uri:"https://www.freepik.com/premium-vector/scientific-formulas-calculations-physics-mathematics_2190060.htm#page=1&query=physics&position=23"}}  
+          resizeMode="contain"
+          source = {require("F:/virtusaProject/frontEnd-master/assets/tpi.jpg")}  
         />
+        <Button
+          onPress={() => this.props.navigation.goBack(null)}
+          title="Back to courses"
+          color="#841584"
+          borderRadius= "20"
+          accessibilityLabel="Learn more about this purple button"
+          />
         <FlatList 
           style={styles.tasks}
           columnWrapperStyle={styles.listContainer}
@@ -70,10 +67,10 @@ export default class physicsPlaylist extends Component {
           }}
           renderItem={({item}) => {
           return (
-            <TouchableOpacity style={[styles.card, {borderColor:item.color}]} onPress={() => {this.clickEventListener(item)}}>
+            <TouchableOpacity style={[styles.card, {borderColor:item.color}]} onPress={() => {navigate("physics")}}>
               <Image style={styles.image} source={{uri: "https://img.icons8.com/flat_round/64/000000/play--v1.png"}}/>
               <View style={styles.cardContent}>
-                <Text>{item.description}</Text>
+                <Text style={{color:"#ffffff"}}>{item.description}</Text>
               </View>
             </TouchableOpacity>
           )}}/>
@@ -86,7 +83,7 @@ const styles = StyleSheet.create({
   container:{
     flex:1,
     marginTop:20,
-    backgroundColor:"#557571"
+    backgroundColor:"#000000"
   },
   tasks:{
     flex:1,
@@ -109,10 +106,9 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.37,
     shadowRadius: 7.49,
     elevation: 12,
-
     marginVertical: 10,
     marginHorizontal:20,
-    backgroundColor:"white",
+    backgroundColor:"#4c4c4c",
     padding: 10,
     flexDirection:'row',
     flexWrap: 'wrap',

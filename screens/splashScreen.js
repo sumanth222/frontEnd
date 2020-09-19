@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text, Image } from "react-native";
+import { View, Text, Image,Platform } from "react-native";
 
 class SplashScreen extends React.Component {
   performTimeConsumingTask = async () => {
@@ -26,7 +26,7 @@ class SplashScreen extends React.Component {
         <Image
           style={styles.edIcon}
           source={{
-            uri: "https://www.flaticon.com/svg/static/icons/svg/906/906175.svg",
+            uri: Platform.OS === "web"?"https://www.flaticon.com/svg/static/icons/svg/906/906175.svg":"https://img.icons8.com/ios/50/000000/student-center.png",
           }}
         />
         <Text style={styles.textStyles}>E-Learning</Text>

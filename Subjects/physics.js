@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Platform, StyleSheet, Text, View,Dimensions,Image,Button } from 'react-native';
+import { Platform, StyleSheet, Text, View,Dimensions,Image,Button,ScrollView } from 'react-native';
 import {Video} from 'expo-av';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { TouchableOpacity } from 'react-native-gesture-handler';
@@ -36,20 +36,22 @@ export default class physicsScreen extends Component {
   useNativeControls={true}
   volume={1.0}
   isMuted={false}
-  resizeMode="cover"
+  resizeMode={Video.RESIZE_MODE_CONTAIN}
   shouldPlay
   isLooping
-  style={{ width: "100%", height: height/2}}
+  style={{ width: "100%", height: height/2 + 50}}
 />
 <Button
   onPress={() => this.props.navigation.goBack(null)}
-  title="Back to courses"
+  title="Back to playlist"
   color="#841584"
   borderRadius= "20"
   accessibilityLabel="Learn more about this purple button"
 />
-<Text style={{fontSize: 30,marginTop:20}}>Sample Video</Text>
-<Text>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</Text>
+<Text style={{fontSize: 30,marginTop:20,color:"#ffffff",fontWeight:"bold"}}>Sample Video</Text>
+<ScrollView>
+<Text style={{fontSize:20,color:"#ffffff",marginLeft:"5%",marginRight:"5%"}}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</Text>
+</ScrollView>
       </View>
 
     );
@@ -59,7 +61,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: "center",
-    
+    backgroundColor:"#4c4c4c",
   },
   toolbar: {
     marginTop: 30,
