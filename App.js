@@ -12,22 +12,22 @@ import teacherDash from "./dashboards/Teacher";
 import SplashScreen from "./screens/splashScreen";
 import physicsScreen from './Subjects/physics';
 import physicsPlaylist from "./playlists/physicspl";
+import webcm from "./webcam/webcm";
 
 //import all the screens we are going to switch
 const App = createStackNavigator(
   {
     //Constant which holds all the screens like index of any book
-    SplashScreen: { screen: SplashScreen },
-    Login: { screen: Login },
-    Registration: { screen: Registration },
-    student: { screen: studentDash },
-    physics : {screen : physicsScreen},
-    physicsPlaylist : {screen : physicsPlaylist},
-    teacher: { screen: teacherDash },
-
+    SplashScreen: { screen: SplashScreen,navigationOptions: {header: null,} },
+    Login: { screen: Login,navigationOptions: {header: null,}  },
+    Registration: { screen: Registration,navigationOptions: {header: null,}  },
+    student: { screen: studentDash,navigationOptions: {header: null,}  },
+    physics : {screen : physicsScreen,navigationOptions: {header: null,} },
+    physicsPlaylist : {screen : physicsPlaylist,navigationOptions: {header: null,} },
+    teacher: { screen: teacherDash,navigationOptions: {header: null,}  },
+    webcm:{screen : webcm}
     //First entry by default be our first screen if we do not define initialRouteName
-  },
-  { headerMode: "none" },
+  },  
   {
     initialRouteName: "SplashScreen",
   }
