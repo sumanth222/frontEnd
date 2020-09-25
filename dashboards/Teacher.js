@@ -8,39 +8,31 @@ import {
   Image,
   Alert,
   ScrollView,
+  Dimensions,
   FlatList,
+  Platform
+
 } from "react-native";
+import { NavigationContainer } from "@react-navigation/native";
+import "react-native-gesture-handler";
+import { createStackNavigator } from "@react-navigation/stack";
 import stuBack from "F:/virtusaProject/frontEnd-master/assets/stuBack.jpg";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 export default class teacherDash extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      enableScrollViewScroll: true,
       data: [
         {
           id: 1,
-          title: "You",
+          title: "Record lecture",
           color: "#f0a500",
-          image: "https://img.icons8.com/color/48/000000/person-male.png",
-        },
-        {
-          id: 2,
-          title: "Home",
-          color: "#87CEEB",
-          image: "https://img.icons8.com/office/70/000000/home-page.png",
-        },
-        {
-          id: 3,
-          title: "Your Courses",
-          color: "#e0ece4",
-          image: "https://img.icons8.com/dusk/64/000000/video.png",
-        },
-        {
-          id: 4,
-          title: "Settings",
-          color: "#cbaf87",
-          image: "https://img.icons8.com/fluent/48/000000/settings.png",
-        },
+          image: "https://img.icons8.com/cotton/64/000000/laptop-webcam.png",
+          nav: "webcm",
+        },     
+        
       ],
     };
   }
@@ -50,29 +42,33 @@ export default class teacherDash extends Component {
   }
 
   render() {
+    const { navigate } = this.props.navigation;
+    const {width,height} = Dimensions.get("window");
     return (
       <ImageBackground style={styles.backgroundCon} source={stuBack}>
+        <SafeAreaView>
+         
         <View style={styles.container}>
+
           <View>
-            <Text style={styles.title}>Teacher Dash</Text>
+            <Text style={styles.title}>Welcome</Text>
           </View>
           <FlatList
             style={styles.list}
             contentContainerStyle={styles.listContainer}
             data={this.state.data}
             horizontal={false}
-            numColumns={2}
+            numColumns={Platform.OS === "web" ? 4 : 2}
+            scrollEnabled={true}
             keyExtractor={(item) => {
               return item.id;
             }}
             renderItem={({ item }) => {
               return (
-                <View>
+                <View>  
                   <TouchableOpacity
                     style={[styles.card, { backgroundColor: item.color }]}
-                    onPress={() => {
-                      this.clickEventListener(item);
-                    }}
+                    onPress={()=>{navigate(item.nav)}}
                   >
                     <Image
                       style={styles.cardImage}
@@ -89,11 +85,20 @@ export default class teacherDash extends Component {
                       </Text>
                     </View>
                   </View>
+                 
                 </View>
               );
             }}
           />
+          <TouchableOpacity
+                    style={styles.logOut}
+                    onPress={()=>{this.props.navigation.goBack(null)}}
+                  >
+                   <Text style={{color:"#fff"}}>Logout</Text>
+                  </TouchableOpacity>
         </View>
+
+        </SafeAreaView>
       </ImageBackground>
     );
   }
@@ -108,10 +113,10 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
   container: {
-    flex: 1,
+    flex : 1,
   },
   list: {
-    marginTop: "30%",
+   marginTop:"10%",
     paddingHorizontal: 5,
   },
   listContainer: {
@@ -137,8 +142,19 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
   },
+  logOut:{
+    flex:1,
+    justifyContent: "flex-end",
+    alignItems: "center",
+    marginBottom:36,
+    height:40,
+    backgroundColor:"#4c4c4c",
+    width: "100%",
+    borderRadius: 30,
+    
+  },
   cardHeader: {
-    paddingVertical: 17,
+    paddingVertical: 5,
     paddingHorizontal: 16,
     borderTopLeftRadius: 1,
     borderTopRightRadius: 1,
@@ -147,7 +163,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
   cardContent: {
-    paddingVertical: 12.5,
+    paddingVertical: 5.5,
     paddingHorizontal: 16,
   },
   cardFooter: {
@@ -165,7 +181,7 @@ const styles = StyleSheet.create({
     alignSelf: "center",
   },
   title: {
-    fontSize: 24,
+    fontSize: 19,
     flex: 1,
     alignSelf: "center",
     fontWeight: "bold",

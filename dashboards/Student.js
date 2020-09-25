@@ -135,6 +135,12 @@ export default class studentDash extends Component {
               );
             }}
           />
+           <TouchableOpacity
+                    style={styles.logOut}
+                    onPress={()=>{this.props.navigation.goBack(null)}}
+                  >
+                   <Text style={{color:"#fff"}}>Logout</Text>
+                  </TouchableOpacity>
         </View>
 
         </SafeAreaView>
@@ -213,5 +219,16 @@ const styles = StyleSheet.create({
     flex: 1,
     alignSelf: "center",
     fontWeight: "bold",
+  },
+  logOut:{
+    flex:1,
+    justifyContent: "flex-end",
+    alignItems: "center",
+    marginBottom:36,
+    height:40,
+    backgroundColor:"#4c4c4c",
+    width: "100%",
+    borderRadius: 30,
+    
   },
 });
