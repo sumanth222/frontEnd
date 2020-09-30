@@ -32,7 +32,13 @@ export default class teacherDash extends Component {
           image: "https://img.icons8.com/cotton/64/000000/laptop-webcam.png",
           nav: "webcm",
         },     
-        
+        {
+          id: 2,
+          title: "Add questions",
+          color: "#f08a5d",
+          image: "https://img.icons8.com/cotton/64/000000/plus--v3.png",
+          nav: "App1",
+        },   
       ],
     };
   }
