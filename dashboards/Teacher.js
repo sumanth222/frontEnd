@@ -39,6 +39,13 @@ export default class teacherDash extends Component {
           image: "https://img.icons8.com/cotton/64/000000/plus--v3.png",
           nav: "App1",
         },   
+         {
+          id: 3,
+          title: "Chat room",
+          color: "#ffd57e",
+          image: "https://img.icons8.com/cotton/64/000000/chat.png",
+          nav: "chatRoom",
+        },   
       ],
     };
   }

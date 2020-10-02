@@ -9,7 +9,8 @@ import {
   Alert,
   ScrollView,
   FlatList,
-  Platform
+  Platform,
+  Button
 
 } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
@@ -135,9 +136,30 @@ export default class studentDash extends Component {
               );
             }}
           />
+          <Button
+          onPress={() => this.props.navigation.navigate("chatRoom")}
+          title="Chat Room"
+          color="#b83b5e"
+          borderRadius= "20"
+          accessibilityLabel="Learn more about this purple button"
+          />
+          <Button
+          
+          title="View stats"
+          color="#835858"
+          borderRadius= "20"
+          accessibilityLabel="Learn more about this purple button"
+          />
+           <Button
+          onPress={() => this.props.navigation.navigate("App2")}
+          title="Take test"
+          color="#841584"
+          borderRadius= "20"
+          accessibilityLabel="Learn more about this purple button"
+          />
            <TouchableOpacity
                     style={styles.logOut}
-                    onPress={()=>{this.props.navigation.goBack(null)}}
+                    onPress={()=>{this.props.navigation.goBack()}}
                   >
                    <Text style={{color:"#fff"}}>Logout</Text>
                   </TouchableOpacity>
