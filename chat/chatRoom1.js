@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import ChatInput from './ChatInput'
-import ChatMessage from './ChatMessage'
+import ChatMessage1 from './chatMessage1'
 import {
   StyleSheet,
   Text,
@@ -49,7 +49,7 @@ class chatRoom extends Component {
     this.setState(state => ({ messages: [message, ...state.messages] }))
 
   submitMessage = messageString => {
-    const message = { name: this.state.name+" (Student): ", message: messageString }
+    const message = { name:this.state.name+" (Teacher): ", message: messageString }
     this.ws.send(JSON.stringify(message))
     this.addMessage(message)
   }
@@ -79,7 +79,7 @@ class chatRoom extends Component {
         </View>
        <View style={{backgroundColor:"#e8ffff"}}>
         {this.state.messages.map((message, index) =>
-          <ChatMessage
+          <ChatMessage1
             key={index}
             message={message.message}
             name={message.name}
