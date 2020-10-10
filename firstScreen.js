@@ -1,4 +1,5 @@
 import React, { useRef, useEffect, Component } from "react";
+import Carousel from 'react-native-snap-carousel';
 
 import {
   StyleSheet,
@@ -13,6 +14,7 @@ import {
   Alert,
   Picker,
   ImageBackground,
+  Dimensions,
 } from "react-native";
 import log from "./screens/login";
 import { NavigationContainer } from "@react-navigation/native";
@@ -25,7 +27,6 @@ let te = "";
 let toGo = "";
 let stu = "STUDENT";
 let tea = "TEACHER";
-
 const FadeInView = (props) => {
   const fadeAnim = useRef(new Animated.Value(0)).current; // Initial value for opacity: 0
 
@@ -57,6 +58,39 @@ export default class Login extends Component {
     password: "",
     role: "",
     data: "",
+    activeIndex:0,
+    carouselItems: [
+    {
+        title:"https://image.freepik.com/free-vector/group-students-watching-online-webinar_74855-5514.jpg",
+        text: "Welcome to the world of E-learning",
+        color:"#fff"
+    },
+    {
+        title:"https://image.freepik.com/free-vector/female-student-listening-webinar-online_74855-6461.jpg",
+        text: "One on one interactions",
+        color:"#000000"
+    },
+    {
+        title:"https://image.freepik.com/free-vector/online-tutorials-concept_52683-37480.jpg",
+        text: "Top quality faculty!",
+        color:"#fff"
+    },
+    {
+        title:"https://image.freepik.com/free-vector/woman-with-long-hair-teaching-online_23-2148508674.jpg",
+        text: "Instant doubt clarification!",
+        color:"#000000"
+    },
+    {
+        title:"https://image.freepik.com/free-vector/online-courses-concept_23-2148533386.jpg",
+        text: "Learn from the best!",
+        color:"#fff"
+    },
+    {
+      title:"https://image.freepik.com/free-vector/online-test-isometric-color-vector-illustration_151150-174.jpg",
+      text: "Take tests online!",
+      color:"#000000"
+  },
+  ]
   };
 
   updateRole = (role) => {
@@ -67,7 +101,7 @@ export default class Login extends Component {
     Alert.alert("Alert", "Button pressed " + viewId);
   };
 
-  loginUser = () => {
+  loginUser (){
     const { email } = this.state;
     const { password } = this.state;
     const { role } = this.state;
@@ -79,13 +113,13 @@ export default class Login extends Component {
     };
 
     axios
-      .post("http://192.168.0.103:8080/loginUser", {
+      .post("http://192.168.0.102:8080/loginUser", {
         userName: email,
         password: password,
       })
       .then(function (response) {
-        toGo = response.data;
-        console.log(toGo);
+        toGo = response.data;       
+        //console.log(toGo);
         if (toGo != "STUDENT" && toGo != "TEACHER") {
           alert("Invalid credentials!");
         }
@@ -95,21 +129,55 @@ export default class Login extends Component {
       });
   };
 
+  _renderItem({item,index}){
+    const {width,height} = Dimensions.get("screen");
+    return (
+      <View style={{
+          backgroundColor:'floralwhite',
+          borderRadius: 5,
+          height: 250,
+          alignItems:"center",
+          justifyContent:"center",
+          padding: 50,
+          marginLeft: 25,
+          marginRight: 25, }}>
+        <Image style={{width:650,height:270}} source={{uri: item.title}}/>
+        <Text style={{color:item.color,marginTop:18,fontSize:20}}><strong>{item.text}</strong></Text>
+      </View>
+
+    )
+}
+
   render() {
     const { navigate } = this.props.navigation;
+    const {width,height} = Dimensions.get("screen");
     return (
       <NavigationContainer>
         <ImageBackground style={styles.backgroundCon} source={minBack}>
+          <FadeInView>
+          <Text style={{fontSize:40,color:"#fff",marginTop:50}}>Login or signup to get started!</Text>
+          </FadeInView>
+        <View style={{ flex: 1, flexDirection:'row', justifyContent: 'center'}}>
+        <View style={{ marginTop:"18%",marginRight:"5%"}}>
+                <Carousel
+                  layout={"stack"}
+                  ref={ref => this.carousel = ref}
+                  data={this.state.carouselItems}
+                  sliderWidth={width/2}
+                  sliderHeight={1000}
+                  itemWidth={700}
+                  itemHeight={1000}
+                  autoplay={true}
+                  loop={true}
+                  activeSlideAlignment={"center"}
+                  inactiveSlideOpacity={10}
+                  backgroundColor={"#fff"}
+                  enableMomentum={false}
+                  lockScrollWhileSnapping={true}
+                  renderItem={this._renderItem}
+                  onSnapToItem = { index => this.setState({activeIndex:index}) } />
+            </View>
           <View style={styles.container}>
-            <FadeInView>
-              <Image
-                style={styles.edIcon}
-                source={{
-                  uri:
-                    "https://img.icons8.com/ios-glyphs/80/000000/student-center.png",
-                }}
-              />
-            </FadeInView>
             <View>
               <View style={styles.inputContainer}>
                 <TextInput
@@ -126,6 +194,7 @@ export default class Login extends Component {
                   }}
                 />
               </View>
+              
             </View>
 
             <View>
@@ -150,8 +219,9 @@ export default class Login extends Component {
               <TouchableHighlight
                 style={[styles.buttonContainer, styles.loginButton]}
                 onPress={() => {
+
                   this.loginUser()
-                  if (toGo === "STUDENT") {
+                  if (toGo === "STUDENT") {                    
                     navigate("student");
                   }
                   if (toGo === "TEACHER") {
@@ -177,6 +247,7 @@ export default class Login extends Component {
                   "https://p7.hiclipart.com/preview/393/544/1015/cypress-mountain-ski-area-computer-icons-snow-others.jpg",
               }}
             />
+          </View>
           </View>
         </ImageBackground>
       </NavigationContainer>

@@ -31,7 +31,7 @@ export default class physicsScreen extends Component {
       <View style={styles.container}>
          
        <Video
-  source={{ uri: 'http://d23dyxeqlo5psv.cloudfront.net/big_buck_bunny.mp4' }}
+  source={{ uri:'http://d23dyxeqlo5psv.cloudfront.net/big_buck_bunny.mp4' }}
   rate={1.0}
   useNativeControls={true}
   volume={1.0}
@@ -48,7 +48,7 @@ export default class physicsScreen extends Component {
   borderRadius= "20"
   accessibilityLabel="Learn more about this purple button"
 />
-<Text style={{fontSize: 30,marginTop:20,color:"#ffffff",fontWeight:"bold"}}>Sample Video</Text>
+<Text style={{fontSize: 30,marginTop:20,color:"#ffffff",fontWeight:"bold"}}>Physics Lecture</Text>
 <ScrollView>
 <Text style={{fontSize:20,color:"#ffffff",marginLeft:"5%",marginRight:"5%"}}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</Text>
 </ScrollView>

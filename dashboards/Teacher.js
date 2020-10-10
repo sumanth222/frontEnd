@@ -16,7 +16,7 @@ import {
 import { NavigationContainer } from "@react-navigation/native";
 import "react-native-gesture-handler";
 import { createStackNavigator } from "@react-navigation/stack";
-import stuBack from "F:/virtusaProject/frontEnd-master/assets/stuBack.jpg";
+import stuBack from "F:/virtusaProject/frontEnd-master/assets/dback.jpg";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 export default class teacherDash extends Component {
@@ -45,6 +45,20 @@ export default class teacherDash extends Component {
           color: "#ffd57e",
           image: "https://img.icons8.com/cotton/64/000000/chat.png",
           nav: "chatRoom1",
+        },   
+        {
+          id: 4,
+          title: "Start Live class",
+          color: "#e8ffc1",
+          image: "https://img.icons8.com/color/48/000000/youtube-live.png",
+          nav: "videoConf",
+        },  
+         {
+          id: 5,
+          title: "Graphical editor",
+          color: "#e8ffc1",
+          image: "https://img.icons8.com/color/48/000000/youtube-live.png",
+          nav: "graphEditor",
         },   
       ],
     };

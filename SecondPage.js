@@ -63,12 +63,6 @@ export default class Registration extends Component {
     this.setState({ role: role });
   };
 
-  onClickListener = (viewId) => {
-    Alert.alert("Alert", "Button pressed " + viewId);
-  };
-
-  //This is just a demo function is just to see if the data is
-  //being stored in local storage or not
   userRegister = () => {
     const { email } = this.state;
     const { password } = this.state;
@@ -81,7 +75,7 @@ export default class Registration extends Component {
     };
     AsyncStorage.setItem("myitems", JSON.stringify(myitems));
 
-    fetch("http://192.168.0.101:8080/newUser", {
+    fetch("http://192.168.0.102:8080/newUser", {
       method: "POST",
       body: JSON.stringify({
         userName: email,
@@ -94,9 +88,6 @@ export default class Registration extends Component {
     })
       .then((response) => response.json())
       .catch((error) => console.log(error));
-    alert("Registered Succesfully !");
-
-    // Displaying results to console
   };
 
   // Actual function which is supposed to send data to the DB
@@ -175,7 +166,15 @@ export default class Registration extends Component {
 
             <TouchableHighlight
               style={[styles.buttonContainer, styles.loginButton, styles.space]}
-              onPress={this.userRegister}
+              onPress={() => {
+                this.userRegister()
+                if(this.state.role === 'student'){
+                  navigate("student")
+                }
+                if(this.state.role === 'teacher'){
+                  navigate("teacher")
+                }
+              }}
             >
               <Text style={styles.loginText}>Register</Text>
             </TouchableHighlight>

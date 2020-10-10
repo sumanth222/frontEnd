@@ -19,16 +19,16 @@ export default class physicsPlaylist extends Component {
     this.state = {
 
       data: [
-        {id:1,  description:"01. Lorem ipsum dolor sit amet, consectetuer adipiscing elit.", color:"#228B22",nav:"physics"},
-        {id:2,  description:"02. Aenean massa. Cum sociis natoque penatibus et magnis.", color:"#FF00FF",nav:"physics"},
-        {id:3,  description:"03. nascetur ridiculus mus. Donec quam felis, ultricies dnec.", color:"#4B0082",nav:"physics"},
-        {id:4,  description:"04. Donec pede justo, fringilla vel, aliquet nec, vulputdate.",color:"#20B2AA",nav:"physics"},
-        {id:5,  description:"05. Nullam dictum felis eu pede mollis pretium. Integer tirr.",color:"#000080",nav:"physics"},
-        {id:6,  description:"06. ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas st.",color:"#FF4500",nav:"physics"},
-        {id:7,  description:"07. Lorem ipsum dolor sit amet, consectetuer adipiscing elit.",color:"#FF0000",nav:"physics"},
-        {id:8,  description:"08. Maecenas nec odio et ante tincidunt tempus. Donec vitae .",color:"#EE82EE",nav:"physics"},
-        {id:9,  description:"09. Lorem ipsum dolor sit amet, consectetuer adipiscing elit.",color:"#6A5ACD",nav:"physics"},
-        {id:10, description:"10. Aenean imperdiet. Etiam ultricies nisi vel augues aasde.",color:"#DDA0DD",nav:"physics"},
+        {id:1,  description:"Physics Lecture 01", color:"#228B22",nav:"physics"},
+        {id:2,  description:"Physics Lecture 02", color:"#FF00FF",nav:"physics"},
+        {id:3,  description:"Physics Lecture 03", color:"#4B0082",nav:"physics"},
+        {id:4,  description:"Physics Lecture 04",color:"#20B2AA",nav:"physics"},
+        {id:5,  description:"Physics Lecture 05",color:"#000080",nav:"physics"},
+        {id:6,  description:"Physics Lecture 06",color:"#FF4500",nav:"physics"},
+        {id:7,  description:"Physics Lecture 07",color:"#FF0000",nav:"physics"},
+        {id:8,  description:"Physics Lecture 08",color:"#EE82EE",nav:"physics"},
+        {id:9,  description:"Physics Lecture 09",color:"#6A5ACD",nav:"physics"},
+        {id:10, description:"Physics Lecture 10",color:"#DDA0DD",nav:"physics"},
       ]
     };
   }
@@ -52,7 +52,7 @@ export default class physicsPlaylist extends Component {
           source = {require("F:/virtusaProject/frontEnd-master/assets/tpi.jpg")}  
         />
         <Button
-          onPress={() => this.props.navigation.goBack(null)}
+          onPress={() => this.props.navigation.goBack()}
           title="Back to courses"
           color="#841584"
           borderRadius= "20"
@@ -83,7 +83,7 @@ const styles = StyleSheet.create({
   container:{
     flex:1,
     marginTop:20,
-    backgroundColor:"#000000"
+    backgroundColor:"#d9c6a5"
   },
   tasks:{
     flex:1,
@@ -108,7 +108,7 @@ const styles = StyleSheet.create({
     elevation: 12,
     marginVertical: 10,
     marginHorizontal:20,
-    backgroundColor:"#4c4c4c",
+    backgroundColor:"#52575d",
     padding: 10,
     flexDirection:'row',
     flexWrap: 'wrap',

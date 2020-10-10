@@ -16,8 +16,10 @@ import {
 import { NavigationContainer } from "@react-navigation/native";
 import "react-native-gesture-handler";
 import { createStackNavigator } from "@react-navigation/stack";
-import stuBack from "F:/virtusaProject/frontEnd-master/assets/stuBack.jpg";
+import stuBack from "F:/virtusaProject/frontEnd-master/assets/dback.jpg";
 import { SafeAreaView } from "react-native-safe-area-context";
+import FileSystem from 'react-native-filesystem';
+
 
 export default class studentDash extends Component {
   constructor(props) {
@@ -76,7 +78,7 @@ export default class studentDash extends Component {
         },
         {
           id: 2,
-          title: "Physics",
+          title: "Get content",
           color: "#f0a500",
           image: "https://img.icons8.com/wired/64/000000/physics.png",
           nav: "physicsPlaylist",
@@ -89,8 +91,14 @@ export default class studentDash extends Component {
     Alert.alert(item.title);
   }
 
+  getContents= async() => {
+    const fileContents = await FileSystem.readFile('file:///F:/virtusaProject/records/lol.txt');
+    alert(`read from file: ${fileContents}`);
+  }
+
   render() {
     const { navigate } = this.props.navigation;
+    
     return (
       <ImageBackground style={styles.backgroundCon} source={stuBack}>
         <SafeAreaView>
