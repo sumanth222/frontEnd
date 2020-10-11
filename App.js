@@ -10,6 +10,7 @@ import SplashScreen from "./screens/splashScreen";
 import physicsScreen from './Subjects/physics';
 import physicsPlaylist from "./playlists/physicspl";
 import webcm from "./webcam/webcm";
+import uploadVid from "./uploadVid";
 import App1 from "./addQuestion";
 import App2 from "./test";
 import chatRoom from "./chat/chatRoom";
@@ -31,6 +32,7 @@ const App = createStackNavigator(
     App1 : {screen : App1,navigationOptions:{title: "Go back"}},
     App2: {screen : App2,navigationOptions:{title: "Go back"}},
     webcm:{screen : webcm},
+    uploadVid : {screen: uploadVid},
     chatRoom : {screen : chatRoom,navigationOptions:{title: "Leave chat"}},
     chatRoom1 : {screen : chatRoom1,navigationOptions:{title: "Leave chat"}},
     videoConf : {screen:videoConf},
