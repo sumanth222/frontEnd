@@ -55,10 +55,10 @@ export default class teacherDash extends Component {
         },  
          {
           id: 5,
-          title: "Graphical editor",
-          color: "#e8ffc1",
-          image: "https://img.icons8.com/color/48/000000/youtube-live.png",
-          nav: "graphEditor",
+          title: "Upload video",
+          color: "#fff5ea",
+          image: "https://img.icons8.com/fluent/48/000000/upload--v16.png",
+          nav: "uploadVid",
         },   
       ],
     };
