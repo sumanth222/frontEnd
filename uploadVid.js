@@ -35,7 +35,7 @@ class uploadVid extends Component {
 	
 	console.log(this.state.selectedFile); 
 	
-	axios.post("http://192.168.0.102:8090/video",{
+	axios.post("http://192.168.43.2:8090/video",{
         formData    
     })
     .then(function(response){
@@ -77,7 +77,7 @@ class uploadVid extends Component {
 	return ( 
         <View style={{flex:1,alignItems:'center',backgroundColor:"#99f3bd",justifyContent:'center'}}>
         <Text style={{fontSize:40,marginBottom:40}}><strong>Upload Video</strong></Text>
-		<form method="POST" encType="multipart/form-data" action="/video">
+		<form method="POST" encType="multipart/form-data" action="http://192.168.43.2:8090/video">
 		<input type="file" name="file" onChange={this.onFileChange}/><br /> 
         {this.fileData()}
 		<br /> <input type="submit" value="Upload" />
