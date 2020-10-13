@@ -1,0 +1,93 @@
+.questionContainer{
+    margin-top: 100px;
+}
+
+.questionInputContainer{
+    margin-top: 20px;
+    width:80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.enter-question {
+  margin-top: 20px;
+}
+
+.enter-options {
+  margin-top: 20px;
+}
+
+.action-button {
+  text-align: center;
+}
+
+.input-question {
+  margin: 0;
+  width: 100%;
+  border-radius: 0.4rem;
+  padding: 10px;
+}
+
+.input-options {
+  margin: 0;
+  width: 70%;
+  border-radius: 0.4rem;
+  padding: 10px;
+}
+
+.delete-btn {
+  right: 0%;
+  background: #f34541;
+  color: #fff !important;
+  text-transform: uppercase;
+  text-decoration: none;
+  margin-left: 10px;
+  margin-right: 10px;
+  padding: 10px;
+  border-radius: 0.4rem;
+  display: inline-block;
+  border: none;
+}
+
+.add-btn {
+  color: #fff !important;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 10px;
+  border-radius: 0.4rem;
+  display: inline-block;
+  border: none;
+}
+
+.enable-button {
+  background: #7313cb;
+}
+
+.disable-button {
+  background: #d3d3d3;
+}
+
+.added-item {
+  display: block;
+  width: 100%;
+  color: #000000;
+  background-color: #ffffff;
+  line-height: 30px;
+  border-bottom: 1px solid black;
+  margin-top: 10px;
+  padding: 10px;
+  position: relative;
+}
+
+.question-item {
+  width: 70%;
+  color: #000000;
+  display: inline-block;
+  text-align: left;
+  word-wrap: break-word;
+}
+
+.button-div {
+  width: 30%;
+  display: inline-block;
+}

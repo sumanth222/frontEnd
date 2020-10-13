@@ -37,7 +37,7 @@ export default class teacherDash extends Component {
           title: "Add questions",
           color: "#f08a5d",
           image: "https://img.icons8.com/cotton/64/000000/plus--v3.png",
-          nav: "App1",
+          nav: "addMcq",
         },   
          {
           id: 3,
